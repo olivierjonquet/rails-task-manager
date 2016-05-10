@@ -1,2 +1,11 @@
 <h2><%= @task.description %></h2>
+<p>La tache à-elle été réalisée ?</p>
 <p><%= @task.done %></p>
+<p> Created at:</p>
+<p><%= @task.created_at %></p>
+<p>Updated at:</p>
+<p><%= @task.updated_at %></p>
+
+
+<p><%= link_to "Delete", task_path, method: :delete %></p>
+<p><%=link_to "Return to the index", tasks_path %></p>

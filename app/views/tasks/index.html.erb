@@ -1,6 +1,15 @@
+
 <h1>Liste des taches</h1>
+  <p><%= link_to "Create a new Task", new_task_path %> </p>
+
 
 <% @tasks.each do |task| %>
-  <h2><%= task.description %></h2>
-  <p><%= task.done %></p>
+  <h2><%= link_to task.description, task_path(task) %></h2>
+  <p><% if task.done %>
+      <p> <%= "[ x ]" + " - Task done - " %> </p>
+      <% else %>
+      <p> <%= "[" + " " " " + "]" + " - Task not done - "%> </p>
+      <%end%></p>
+  <p><%= link_to "Delete", task_path(task), method: :delete, data: {confirm: "Are you sure?" } %></p>
+  <p><%= link_to "Edit", edit_task_path(task) %></p>
 <% end %>
